@@ -1,53 +1,111 @@
-# Getting Started
+# Getting Started with promptctl
 
-## 1. Setup
+Welcome to **promptctl**! This guide will walk you through the philosophy and practical steps of managing your prompts as code.
 
-Promptctl is a workspace-based tool. You typically set up a repository where you store your prompts and tests.
+---
+
+## Philosophy
+
+At [360labs.dev](https://360labs.dev), we believe that **prompts are software**. They should not live in database columns, sticky notes, or loose playground links. They should be:
+
+1.  **Version Controlled**: Track changes over time.
+2.  **Tested**: Verified against deterministic datasets.
+3.  **Measurable**: Latency, Cost, and Accuracy should be visible.
+
+**promptctl** is built to enable this workflow.
+
+## 1. Installation
+
+### From Source (Recommended for Developers)
 
 ```bash
+git clone https://github.com/360labs/promptctl.git
+cd promptctl
+pnpm install
+pnpm run build
+```
+
+Verify the installation:
+
+```bash
+./packages/cli/bin/run --help
+```
+
+For convenience, link it globally:
+
+```bash
+cd packages/cli && pnpm link --global
+```
+
+## 2. Your First Project
+
+Create a dedicated workspace for your AI artifacts.
+
+```bash
+mkdir demo-project
+cd demo-project
 promptctl init
 ```
 
-This creates:
-- `prompts/`: Store your `.md` prompt files here.
-- `tests/`: Store `.json` test files here.
-- `.promptctl/`: Local config and logs.
+This creates the scaffolding:
+- `.promptctl/`: Do not commit this if it contains secrets or heavy logs.
+- `prompts/`: Place your logic here.
+- `tests/`: Place your truth data here.
 
-## 2. Writing a Prompt
+## 3. The Prompt Format
 
-Create a file `prompts/sentiment.md`:
+We use **Frontmatter Markdown** (`.md`). This allows proper syntax highlighting in editors (VS Code) while keeping metadata structured.
 
+**`prompts/joke.md`**
 ```markdown
 ---
+name: joke-generator
 model: gemini-1.5-flash
-temperature: 0
+temperature: 0.9
+description: Generates dad jokes based on topics.
 ---
-Classify the sentiment of the text as POSITIVE or NEGATIVE.
-Text: {{input}}
-Classification:
+Write a short, pun-based dad joke about {{topic}}.
+Keep it under 20 words.
 ```
 
-## 3. Writing Tests
+The `{{topic}}` is a variable slot. You can have as many as you need.
 
-Create `tests/sentiment.json`:
+## 4. The Test Format
 
+Tests are defined in a JSON Array. Each object is a "Case".
+
+**`tests/jokes.json`**
 ```json
 [
   {
-    "id": "1",
-    "input": "I love this!",
-    "assert": [{ "type": "contains", "value": "POSITIVE" }]
+    "id": "t1",
+    "input": { "topic": "fruit" },
+    "assert": [
+      { "type": "regex", "pattern": "(apple|banana|orange|pear|fruit)", "flags": "i" }
+    ]
   },
   {
-    "id": "2",
-    "input": "I hate this.",
-    "assert": [{ "type": "contains", "value": "NEGATIVE" }]
+    "id": "t2",
+    "input": { "topic": "atoms" },
+    "assert": [
+      { "type": "contains", "value": "trust" }
+    ]
   }
 ]
 ```
 
-## 4. Run Eval
+## 5. Running & Debugging
+
+Run the eval:
 
 ```bash
-promptctl eval prompts/sentiment.md --tests tests/sentiment.json
+promptctl eval prompts/joke.md --tests tests/jokes.json
 ```
+
+If a test fails, `promptctl` returns a non-zero exit code, making it perfect for CI/CD pipelines (GitHub Actions, Jenkins, etc.).
+
+## Next Steps
+
+- Learn about advanced [Evaluations](evals.md).
+- Connect different [Providers](providers.md).
+- Visualize results with the command `promptctl dashboard`.

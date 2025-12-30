@@ -1,0 +1,28 @@
+{
+    "name": "@promptctl/cli",
+    "version": "0.1.0",
+    "bin": {
+        "promptctl": "./bin/run"
+    },
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs --dts",
+        "dev": "tsup src/index.ts --format cjs --watch --onSuccess \"node bin/run\"",
+        "start": "node bin/run"
+    },
+    "dependencies": {
+        "@promptctl/core": "workspace:*",
+        "@promptctl/dashboard": "workspace:^",
+        "@promptctl/providers": "workspace:*",
+        "@promptctl/trace": "workspace:*",
+        "chalk": "^5.3.0",
+        "cli-table3": "^0.6.4",
+        "commander": "^12.0.0",
+        "diff": "^5.2.0"
+    },
+    "devDependencies": {
+        "@types/diff": "^5.2.0",
+        "@types/node": "^20.12.7",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5"
+    }
+}

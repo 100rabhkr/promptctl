@@ -1,0 +1,32 @@
+[
+    {
+        "id": "test-1",
+        "input": "I love this product!",
+        "assert": [
+            {
+                "type": "contains",
+                "value": "POSITIVE"
+            }
+        ]
+    },
+    {
+        "id": "test-2",
+        "input": "This is terrible.",
+        "assert": [
+            {
+                "type": "contains",
+                "value": "NEGATIVE"
+            }
+        ]
+    },
+    {
+        "id": "test-3",
+        "input": "It is a Tuesday.",
+        "assert": [
+            {
+                "type": "contains",
+                "value": "NEUTRAL"
+            }
+        ]
+    }
+]

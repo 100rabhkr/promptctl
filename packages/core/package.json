@@ -1,0 +1,26 @@
+{
+    "name": "@promptctl/core",
+    "version": "0.1.0",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts",
+        "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "@promptctl/providers": "workspace:^",
+        "@promptctl/trace": "workspace:^",
+        "ajv": "^8.17.1",
+        "gray-matter": "^4.0.3",
+        "js-yaml": "^4.1.0"
+    },
+    "devDependencies": {
+        "@types/js-yaml": "^4.0.9",
+        "@types/node": "^20.12.7",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5",
+        "vitest": "^4.0.16"
+    }
+}

@@ -20,7 +20,7 @@
 - **📊 Bulk Evaluation**: Run hundreds of test cases against your prompts in seconds. Get pass/fail rates and latency metrics instantly.
 - **⚖️ A/B Testing**: Scientifically compare two versions of a prompt. Calculate win rates and statistical confidence intervals (Bootstrapping) to make data-driven decisions.
 - **📈 Local Dashboard**: Visualize run history, inspect traces, and analyze costs with a built-in React-based dashboard.
-- **🔌 Multi-Provider Support**: First-class support for Google Gemini, with extensible architecture for OpenAI, Anthropic, and local models.
+- **🔌 Multi-Provider Support**: First-class support for Google Gemini (including 1.5, 2.0, 2.5, and 3.0 series), with extensible architecture for OpenAI, Anthropic, and local models.
 
 ## 🚀 Quick Start
 

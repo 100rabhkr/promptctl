@@ -35,6 +35,66 @@
         "gemini-1.5-flash": {
             "input": 0.35,
             "output": 1.05
+        },
+        "gemini-3-pro-preview": {
+            "input": 3.50,
+            "output": 10.50
+        },
+        "gemini-3-pro-image-preview": {
+            "input": 3.50,
+            "output": 10.50
+        },
+        "gemini-3-flash-preview": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash-preview-09-2025": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash-image": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash-native-audio-preview-12-2025": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash-preview-tts": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.5-flash-lite": {
+            "input": 0.15,
+            "output": 0.45
+        },
+        "gemini-2.5-flash-lite-preview-09-2025": {
+            "input": 0.15,
+            "output": 0.45
+        },
+        "gemini-2.5-pro": {
+            "input": 3.50,
+            "output": 10.50
+        },
+        "gemini-2.5-pro-preview-tts": {
+            "input": 3.50,
+            "output": 10.50
+        },
+        "gemini-2.0-flash": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.0-flash-preview-image-generation": {
+            "input": 0.35,
+            "output": 1.05
+        },
+        "gemini-2.0-flash-lite": {
+            "input": 0.15,
+            "output": 0.45
         }
     }
 }
